@@ -3,7 +3,10 @@ $(function() {
     getUseinfo();
     $("#btnLogout").on("click", function() {
 
-        layer.confirm('是否退出?', { icon: 3, title: '提示' }, function(index) {
+        layer.confirm('是否退出?', {
+            icon: 3,
+            title: '提示'
+        }, function(index) {
             localStorage.removeItem("token");
             location.href = "./login.html"
 
@@ -21,7 +24,9 @@ function getUseinfo() {
         url: "/my/userinfo",
         method: "get",
         success: function(res) {
-            if (res.status !== 0) { return layer.msg("获取用户信息失败") }
+            if (res.status !== 0) {
+                return layer.msg("获取用户信息失败")
+            }
             console.log(res.data);
             rendenavatar(res.data)
         },
@@ -40,7 +45,7 @@ function rendenavatar(user) {
             .attr("src", user.user_pic)
             .show()
         $(".avatar").hide()
-        layer.msg(user.user_pic)
+            //layer.msg(user.user_pic)
 
     } else {
         $(".layui-nav-img").hide();
@@ -48,6 +53,7 @@ function rendenavatar(user) {
         $(".avatar")
             .html(first)
             .show();
-        layer.msg(first)
-    }
+        //layer.msg(first)
+    };
+
 }

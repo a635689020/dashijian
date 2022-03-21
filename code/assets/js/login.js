@@ -55,11 +55,12 @@ $(function() {
 
                 if (res.status !== 0)
                     return layer.msg(res.message)
-                else
+                else {
                     layer.msg("登录成功")
-                console.log(res.token)
-                localStorage.setItem("token", res.token)
-                    // location.href("/index.html")
+                    console.log(res.token)
+                    localStorage.setItem("token", res.token)
+                    location.href = "/index.html"
+                }
             }
 
 
